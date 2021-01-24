@@ -18,8 +18,5 @@
 <style lang="css">
   #main {
     min-height: calc(100vh - 127px);
-    /* background-image: url('../../public/img/clement-m-JIOP2qvo8yk-unsplash.jpg') !important; */
-    /* background-size: 100%; */
-    /* background-repeat: no-repeat; */
   }
 </style>

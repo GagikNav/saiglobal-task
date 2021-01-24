@@ -1,12 +1,23 @@
 <template>
   <div id="app" class="box-border antialiased text-gray-900">
-    <div id="nav" class="flex px-10 py-8 bg-blue-100 content-evenly">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div
+      id="nav"
+      class="flex justify-between px-10 py-8 bg-blue-100 content-evenly"
+    >
+      <router-link :to="{ name: 'Home' }">
+        <img
+          src="../public/logo-via-logohub.png"
+          alt=""
+          class="h-10 mr-5 w-100"
+        />
+      </router-link>
+      <div>
+        <router-link :to="{ name: 'Home' }">Home</router-link> |
+        <router-link :to="{ name: 'About' }">About</router-link> |
+        <router-link :to="{ name: 'AddMovie' }">Add Movie</router-link>
+      </div>
     </div>
-    <router-view
-      style="background-image: url('../public/img/clement-m-JIOP2qvo8yk-unsplash.jpg')"
-    />
+    <router-view />
     <footer id="main-footer" class="p-2 font-light text-center bg-gray-400">
       Copyright
       <a href="https://www.gagik.me" target="_blank">© Gagik Navasatariyan</a>
@@ -15,6 +26,11 @@
   </div>
 </template>
 <script>
+  //
+
+  // ..
+
+  // ....
   export default {
     computed: {
       date: () => {
@@ -31,7 +47,7 @@
       color: #2c3e50;
 
       &.router-link-exact-active {
-        color: #42b983;
+        color: #ff3953;
       }
     }
   }

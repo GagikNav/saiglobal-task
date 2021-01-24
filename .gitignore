@@ -23,3 +23,6 @@ pnpm-debug.log*
 *.sw?
 /tw.notes
 /node_modules
+/note.notes
+/quickNote.notes
+/src/components/baseinput.vue

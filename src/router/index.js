@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import Movie from '../views/Movie.vue';
 import AddMovie from '../views/AddMovie.vue';
+import EditMovie from '../views/EditMovie.vue';
 
 const routes = [
   {
@@ -25,6 +26,12 @@ const routes = [
     name: 'Movie',
     props: true,
     component: Movie,
+  },
+  {
+    path: '/edit/:id',
+    name: 'EditMovie',
+    props: true,
+    component: EditMovie,
   },
 ];
 

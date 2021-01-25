@@ -1,10 +1,10 @@
 <template lang="">
   <div
-    class="w-3/5 mx-2 my-6 overflow-hidden bg-white border rounded-lg lg:w-1/4 md:w-1/3 sm:w-full sm:p-0"
+    class="w-full mx-2 my-6 overflow-hidden bg-white border rounded-lg md:w-1/3 lg:w-1/4 sm:p-0"
   >
     <router-link :to="{ name: 'Movie', params: { id: movie.id } }">
       <div class="flex justify-center ">
-        <img :src="movie.picUrl" alt="" class="object-fill w-full " />
+        <img :src="movie.picUrl" alt="" class="object-cover w-full max-h-60 " />
       </div>
       <!-- text content -->
       <div class="flex flex-col items-start px-8 pt-4 pb-8">
@@ -29,7 +29,7 @@
         </span>
 
         <span class="text-md">Description:</span>
-        <!-- this logic is fir display no more than 50 charaters in field -->
+        <!-- this logic is for display no more than 50 charters in field -->
         <span class="text-sm text-gray-600 ">{{
           movie.description.length > 50
             ? movie.description.substring(0, 49) + ` &hellip; `
@@ -46,19 +46,33 @@
   </div>
 </template>
 <script>
-  // import { mapState } from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     props: {
-      movie: Object,
+      movieId: Number,
     },
-    name: 'CardDetaile',
+    data() {
+      return {
+        movie: {},
+      };
+    },
+    methods: {
+      log(param) {
+        console.log(param);
+      },
+    },
+    created() {
+      this.movie = this.getMovie(this.movieId);
+    },
+
+    name: 'CardDetail',
     // ..
-    /*computed: {
-      ...mapState({
-        movie: state => state.movies[0],
+    computed: {
+      ...mapGetters({
+        getMovie: 'getMovieById',
       }),
-    },*/
+    },
   };
 </script>
 <style lang=""></style>

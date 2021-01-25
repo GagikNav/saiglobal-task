@@ -1,18 +1,22 @@
 <template>
-  <div class="flex flex-wrap justify-center gap-5 ">
-    <CardDetaile v-for="movie in movies" :key="movie.id" :movie="movie" />
+  <div class="flex flex-wrap justify-center gap-5 max-w-7xl">
+    <CardDetail v-for="movie in movies" :key="movie.id" :movieId="movie.id" />
   </div>
 </template>
 
 <script>
-  import CardDetaile from '@/components/CardDetaile';
+  import CardDetail from '@/components/CardDetail';
 
   import { mapState } from 'vuex';
 
   export default {
     name: 'Cards',
     components: {
-      CardDetaile,
+      CardDetail,
+    },
+    created() {
+      this.movies;
+      console.log(this.movies);
     },
     computed: {
       ...mapState({

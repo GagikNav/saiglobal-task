@@ -7,7 +7,7 @@ export default createStore({
       {
         id: 1,
         name: ' Alien',
-        genre: ['action', 'romance', 'drama'],
+        genre: ['Action', 'Romance', 'Drama'],
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam quasi quas quo nulla repellat nihil iusto sequi architecto assumenda fugit.',
         year: 2020,
@@ -17,7 +17,7 @@ export default createStore({
       {
         id: 2,
         name: ' Jedi ',
-        genre: ['action', 'drama'],
+        genre: ['Action', 'Drama'],
         description:
           'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima at pariatur fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corporis. Soluta nobis sequi aut aliquid reprehenderit tempora eaque perspiciatis unde!',
         year: 2017,
@@ -27,7 +27,7 @@ export default createStore({
       {
         id: 3,
         name: ' Flames ',
-        genre: ['action', 'drama', 'war'],
+        genre: ['Action', 'Drama'],
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet sit deleniti soluta ab animi magnam, ipsum at modi minus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo inventore ullam libero repellat iusto ut.',
         year: 2012,
@@ -37,7 +37,7 @@ export default createStore({
       {
         id: 4,
         name: 'Princess Sleeping',
-        genre: ['love', 'drama', 'fantasy'],
+        genre: ['Romance', 'Drama', 'Fantasy'],
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsa consectetur maiores ab inventore reiciendis necessitatibus architecto vero ullam. At.',
         year: 2011,
@@ -47,7 +47,7 @@ export default createStore({
       {
         id: 5,
         name: 'Kill Bill',
-        genre: ['Crime', 'drama', 'fantasy'],
+        genre: ['Crime', 'Drama', 'Fantasy'],
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima libero dicta accusantium aperiam odio delectus fuga veniam laborum corrupti perferendis.',
         year: 2011,
@@ -57,7 +57,7 @@ export default createStore({
       {
         id: 6,
         name: 'Kill Bill',
-        genre: ['Crime', 'drama', 'fantasy'],
+        genre: ['Crime', 'Drama', 'Fantasy'],
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima libero dicta accusantium aperiam odio delectus fuga veniam laborum corrupti perferendis.',
         year: 2011,
@@ -71,11 +71,30 @@ export default createStore({
       value.id = Math.floor(Math.random() * 1000000000);
       state.movies.unshift(value);
     },
+    EDIT_DATA(state, value) {
+      const movieIndex = state.movies.movies.findIndex(
+        movie => movie.id == value.id,
+      );
+      state.movies[movieIndex] = { ...value };
+    },
+    DELETE_DATA(state, value) {
+      state.movies = state.movies.filter(movie => movie.id !== value);
+    },
   },
   actions: {
     addData({ state, commit }, value) {
       if (state.movies) {
         commit('ADD_DATA', value);
+      }
+    },
+    deleteData({ state, commit }, value) {
+      if (state.movies) {
+        commit('DELETE_DATA', value);
+      }
+    },
+    editData({ state, commit }, value) {
+      if (state.movies) {
+        commit('EDIT_DATA', value);
       }
     },
   },

@@ -1,6 +1,6 @@
 <template>
-  <div id="main" class="flex justify-center px-6 bg-gray-100">
-    <LargeCard :movie="cardId(id)" />
+  <div id="main" class="flex justify-center bg-gray-100">
+    <LargeCard :id="id" />
   </div>
 </template>
 

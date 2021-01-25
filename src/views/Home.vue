@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="flex justify-center px-6 bg-gray-100 sm:p-0">
+  <div id="main" class="flex justify-center w-full bg-gray-100 ">
     <Cards />
   </div>
 </template>

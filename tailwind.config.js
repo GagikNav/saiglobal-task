@@ -1,4 +1,3 @@
-const { trueGray } = require('tailwindcss/colors');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -6,16 +5,18 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors:{
+      colors: {
         lightblue: colors.lightBlue,
         trueGray: colors.trueGray,
-      }
+      },
       //
     },
   },
   variants: {
     extend: {
       //
+      opacity: ['disabled'],
+      backgroundColor: ['responsive', 'hover', 'focus', 'active'],
     },
   },
   plugins: [

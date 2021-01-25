@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 input[type='text']
     input[type='password']
@@ -26,9 +25,22 @@ input[type='text']
   box-sizing: border-box;
 }
 
+.btn {
+  @apply px-4 py-1 font-bold rounded;
+}
 .btn-blue {
-  @apply px-2 py-1 m-4 text-lg font-semibold delay-75 rounded-md outline-none cursor-pointer hover:via-blue-400 hover:shadow-md bg-lightblue-400 text-trueGray-800 hover:bg-lightblue-200;
+  @apply text-white bg-lightblue-500;
+}
+.btn-red {
+  @apply text-white bg-red-500;
+}
+.btn-blue:hover {
+  @apply bg-lightblue-700;
+}
+.btn-red:hover {
+  @apply bg-red-700;
 }
 #main {
   min-height: calc(100vh - 127px);
 }
+@tailwind utilities;

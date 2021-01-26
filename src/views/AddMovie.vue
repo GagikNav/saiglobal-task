@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="flex flex-col items-center px-6 bg-gray-100 fle sm:p-0">
+  <div id="main" class="flex flex-col items-center px-6 bg-gray-50 fle sm:p-0">
     <h1 class="m-5 text-2xl font-semibold">You can add new movie data here</h1>
     <InputForm />
   </div>

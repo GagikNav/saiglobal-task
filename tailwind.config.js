@@ -6,6 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: '#00a4d3',
+        secondary: '#3b4754',
+        footer: '#444444',
+        footerText: '#d6d6d6',
         lightblue: colors.lightBlue,
         trueGray: colors.trueGray,
       },

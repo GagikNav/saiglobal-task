@@ -1,46 +1,49 @@
 <template lang="">
   <div
-    class="w-full mx-2 my-6 overflow-hidden bg-white border rounded-lg md:w-1/3 lg:w-1/4 sm:p-0"
+    class="w-full mx-2 my-6 overflow-hidden bg-white border border-gray-300 rounded-md shadow-md md:w-1/3 lg:w-1/4 sm:p-0"
   >
     <router-link :to="{ name: 'Movie', params: { id: movie.id } }">
-      <div class="flex justify-center ">
-        <img :src="movie.picUrl" alt="" class="object-cover w-full max-h-60 " />
+      <div class="relative flex justify-center h-1/2">
+        <img
+          :src="movie.picUrl"
+          alt=""
+          class="object-cover object-center w-full max-h-64 "
+        />
+        <div
+          id="inspiration"
+          class="absolute w-20 h-5 p-0 text-xs text-center text-white capitalize bg-gray-500 rounded-md shadow-md top-4 left-5"
+        >
+          <span class="">
+            Inspiration
+          </span>
+        </div>
       </div>
       <!-- text content -->
-      <div class="flex flex-col items-start px-8 pt-4 pb-8">
+      <div class="flex flex-col items-start px-3 pb-8 ">
         <!--  -->
+        <span class="w-full pr-5 mt-3 text-sm font-light text-right ">
+          {{ movie.year }}
+        </span>
 
-        <span class="mb-1 text-md"
-          >Genre:
+        <span id="movie-title" class="mb-3 text-lg font-semibold uppercase">{{
+          movie.name
+        }}</span>
+
+        <div id="genre-wrapper" class="flex gap-1 mb-3">
           <span
-            class="text-xs font-semibold text-gray-600 uppercase"
+            class="text-xs text-gray-500 capitalize font-extralight"
             v-for="(genre, index) in movie.genre"
             :key="index"
           >
             {{ genre }},
           </span>
-        </span>
-
-        <span class="mb-2 text-md"
-          >Name:
-          <span class="text-xl italic font-semibold uppercase">{{
-            movie.name
-          }}</span>
-        </span>
-
-        <span class="text-md">Description:</span>
+        </div>
         <!-- this logic is for display no more than 50 charters in field -->
         <span class="text-sm text-gray-600 ">{{
-          movie.description.length > 50
-            ? movie.description.substring(0, 49) + ` &hellip; `
+          movie.description.length > 80
+            ? movie.description.substring(0, 80) + ` &hellip; `
             : movie.description
         }}</span>
-        <span class="mt-3 text-green-600"
-          >Year:
-          <span class="italic font-semibold">
-            {{ movie.year }}
-          </span>
-        </span>
       </div>
     </router-link>
   </div>
@@ -58,8 +61,8 @@
       };
     },
     methods: {
-      log(param) {
-        console.log(param);
+      log(arg) {
+        console.log(arg);
       },
     },
     created() {

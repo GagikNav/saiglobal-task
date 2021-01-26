@@ -72,9 +72,7 @@ export default createStore({
       state.movies.unshift(value);
     },
     EDIT_DATA(state, value) {
-      const movieIndex = state.movies.movies.findIndex(
-        movie => movie.id == value.id,
-      );
+      const movieIndex = state.movies.findIndex(movie => movie.id == value.id);
       state.movies[movieIndex] = { ...value };
     },
     DELETE_DATA(state, value) {
@@ -106,6 +104,7 @@ export default createStore({
     getMovieById: state => id => {
       return state.movies.find(movie => movie.id == id);
     },
+    getLastMovie: state => state.movies[0],
   },
 
   modules: {},

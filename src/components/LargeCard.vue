@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full h-auto bg-gray-200">
+  <div class="relative w-full h-auto pt-10 bg-gray-100">
     <div class="flex w-full ">
       <div class="mx-auto sm:max-w-2xl lg:max-w-full lg:w-1/2 lg:h-4/5">
         <div class="lg:hidden">
           <img
-            class="object-cover object-center w-full h-full mx-auto mt-1 rounded-lg shadow-2xl "
+            class="object-cover object-center w-full h-full mx-auto mt-1 rounded shadow-2xl "
             :src="movie.picUrl"
             alt=""
             style="height:40vh"
@@ -17,7 +17,7 @@
         >
           <div id="genre" class="mb-5 md:mt-8">
             <span
-              class="text-base font-semibold text-red-500 uppercase "
+              class="text-sm uppercase "
               v-for="(genre, index) in movie.genre"
               :key="index"
             >
@@ -27,16 +27,15 @@
 
           <div class="block">
             <span
-              class="font-sans text-3xl antialiased font-bold leading-tight text-gray-900 uppercase md:text-4xl "
+              class="font-sans text-3xl antialiased font-bold leading-tight uppercase md:text-4xl "
             >
               {{ movie.name }}</span
             >
             <span
-              class="block mt-5 text-lg antialiased font-semibold tracking-wide text-green-500"
+              class="block mt-5 text-lg antialiased font-semibold tracking-wide "
               ><span class="text-base ">Released:</span> {{ movie.year }}</span
             >
           </div>
-          {{ id }}
 
           <span
             class="block mt-5 overflow-hidden antialiased font-semibold tracking-wider text-gray-600 md:text-lg md:mt-8"
@@ -56,7 +55,8 @@
             </router-link>
             <button
               class="tracking-wider uppercase shadow-lg btn btn-red active:bg-red-400 focus:outline-none focus:ring focus:border-red-600"
-              @click="deleteMovie"
+              @click="openModal"
+              type="button"
             >
               DELETE
             </button>
@@ -65,41 +65,68 @@
       </div>
       <div class="hidden w-1/2 lg:relative lg:block">
         <img
-          class="absolute inset-0 object-cover object-center w-full h-full rounded-lg shadow-2xl"
+          class="absolute inset-0 object-cover object-center w-full h-full rounded shadow-2xl"
           :src="movie.picUrl"
           alt=""
         />
       </div>
     </div>
+    <!-- Notification -->
+    <Notification
+      notifyType="Delete"
+      v-if="isNotificationOpen"
+      class="absolute bottom-0 left-auto flex flex-col items-center justify-center w-full h-full gap-10 rounded-lg bg-lightblue-100"
+    />
+
+    <!-- modal component -->
+    <ConfirmationModal
+      v-if="isModalOpen"
+      confirmType="Delete"
+      v-on:confirm="callFormAction"
+      v-on:cancel="closeModal($event)"
+      class="absolute z-10 w-2/5 p-2 bg-white rounded-lg shadow-2xl left-5 bottom-10 h-2/4"
+    />
   </div>
 </template>
 <script>
+  import ConfirmationModal from './ConfirmationModal'; // Modal Component
+  import Notification from './Notification';
   export default {
+    components: { ConfirmationModal, Notification },
+    props: {
+      id: String,
+    },
+    name: 'LargeCard',
+    data() {
+      return {
+        isNotificationOpen: false,
+        isModalOpen: false,
+        movie: {},
+      };
+    },
     methods: {
-      log(param) {
-        console.log(param);
+      openModal() {
+        this.isModalOpen = true;
       },
-      editMovie() {
-        // ..
+      closeModal() {
+        this.isModalOpen = false;
+      },
+      callFormAction() {
+        this.deleteMovie(); //form Action Delete
+      },
+
+      handleNotification(status) {
+        this.isNotificationOpen = status;
       },
       deleteMovie() {
         this.$store.dispatch('deleteData', this.movie.id);
+        this.closeModal();
+        this.handleNotification(true);
       },
     },
 
     created() {
       this.movie = this.getMovie(this.$route.params.id);
-    },
-    props: {
-      // movie: Object,
-      id: String,
-    },
-    name: 'LargeCard',
-
-    data() {
-      return {
-        movie: {},
-      };
     },
 
     computed: {
@@ -107,10 +134,6 @@
         return this.$store.getters.getMovieById;
       },
     },
-    // created() {
-    //
-    // },
-    // ..
   };
 </script>
 <style lang="">

@@ -1,6 +1,6 @@
 <template>
-  <div id="main" class="flex justify-center w-full bg-gray-100 ">
-    <Cards />
+  <div id="main" class="flex flex-col items-center justify-center w-full ">
+    <Cards class="" />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mb-5 rounded md:max-w-xl bg-trueGray-300">
+  <div class="relative w-full mb-5 rounded md:max-w-xl bg-trueGray-300">
     <form class="flex justify-center p-8 " @submit.prevent="modifyMovie">
       <div class="flex flex-col w-5/6">
         <!-- Name -->
@@ -107,27 +107,58 @@
 
         <div>
           <input
-            type="submit"
+            @click="openModal"
+            type="button"
             value="Submit"
             class="m-5 btn btn-blue disabled:opacity-20"
             :disabled="isError"
           />
         </div>
       </div>
+      <!--  -->
+      <!-- Notification -->
+      <div
+        :notifyType="Submit"
+        v-if="isNotificationOpen"
+        class="absolute bottom-0 flex flex-col items-center justify-center w-full h-full gap-10 rounded-2xl bg-lightblue-100"
+      >
+        <h1 class="text-4xl font-bold text-gray-800">
+          Your Submit was successful!!
+        </h1>
+        <router-link :to="{ name: 'Home' }">
+          <button type="button" class="text-xl btn btn-blue">Go to Home</button>
+        </router-link>
+      </div>
+      <!-- modal component -->
+
+      <ConfirmationModal
+        v-if="isModalOpen"
+        confirmType="Submit"
+        v-on:confirm="callFormAction"
+        v-on:cancel="closeModal($event)"
+        class="absolute left-auto z-10 w-3/4 p-2 bg-white rounded-lg shadow-2xl bottom-10 h-1/4"
+      />
     </form>
   </div>
 </template>
 <script>
   // this mixin is for data validation
   // I wanted to shorten component length
-
-  import ValidateInput from '../mixins/ValidateInput';
+  import ValidateInput from '../mixins/ValidateInput'; // only form validator
+  import InputFormMethods from '../mixins/InputFormMethods'; // rest of  the methods
+  // ..
+  import ConfirmationModal from './ConfirmationModal'; // Modal Component
 
   export default {
-    mixins: [ValidateInput],
+    mixins: [ValidateInput, InputFormMethods],
+
     props: { movieData: Object },
+    components: { ConfirmationModal },
+
     data() {
       return {
+        isNotificationOpen: false,
+        isModalOpen: false,
         isError: true,
         errorObject: {},
         years: [],
@@ -150,6 +181,9 @@
         },
       };
     },
+    methods: {
+      // Methods are in "InputFormMethod.js" mixin
+    },
     watch: {
       formData: {
         handler(value) {
@@ -168,59 +202,23 @@
           this.isError = false;
         } else {
           this.isError = true;
-
-          // console.log(this.errorModal);
         }
-        console.log(this.isError);
       },
     },
 
-    methods: {
-      // this for test  get data form lorempisum
-      feelLucky() {
-        this.formData.picUrl = `https://picsum.photos/1350/900?random=${this.$store.state.movies.length}`;
-      },
-
-      // submit trough the action as a convention
-      modifyMovie(e) {
-        if (!this.isError) {
-          e.preventDefault();
-          if (this.movieData) {
-            this.$store.dispatch('editData', this.formData);
-          } else {
-            this.$store.dispatch('addData', this.formData);
-          }
-          this.clearForm();
-          console.log('form submitted');
-        } else {
-          console.log('Please correct the errors');
-          return;
-        }
-      },
-      clearForm() {
-        this.formData = {
-          genre: [],
-          name: '',
-          description: '',
-          year: '',
-          picUrl: '',
-        };
-      },
-    },
     created() {
       //  end date can be dynamic
       // created for populate years option.
       // ..
-      for (let i = 2021; i >= 1930; i--) {
+      for (let i = 2021; i >= 1980; i--) {
         this.years.push(i);
       }
+      // ..
+      // checking if in edit mode populates the form
       if (this.movieData) {
-        console.log(this.movieData);
-        this.formData = this.movieData;
+        this.formData = this.movieData; //movieData came from EditMovie component
       }
     },
-
-    computed: {},
 
     // ..
     //

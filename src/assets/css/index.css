@@ -21,7 +21,7 @@ input[type='text']
   /* 
   //....
   */
-  body {
+  * {
   box-sizing: border-box;
 }
 
@@ -29,10 +29,10 @@ input[type='text']
   @apply px-4 py-1 font-bold rounded;
 }
 .btn-blue {
-  @apply text-white bg-lightblue-500;
+  @apply text-white bg-primary;
 }
 .btn-red {
-  @apply text-white bg-red-500;
+  @apply text-white bg-red-700;
 }
 .btn-blue:hover {
   @apply bg-lightblue-700;

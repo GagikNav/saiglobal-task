@@ -26,3 +26,5 @@ pnpm-debug.log*
 /note.notes
 /quickNote.notes
 /src/components/baseinput.vue
+/.vscode
+/src/assets/logo.png

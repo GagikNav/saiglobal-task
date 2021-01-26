@@ -72,7 +72,7 @@
         <select
           v-model="formData.year"
           name="year"
-          class="text-base antialiased font-medium rounded-lg focus:ring-lightblue-400 text-trueGray-800"
+          class="text-base antialiased font-medium rounded-lg focus:ring-lightblue-400 text-secondary"
           required
         >
           <option v-for="year in years" name="year" :value="year" :key="year">{{
@@ -107,38 +107,23 @@
 
         <div>
           <input
-            @click="openModal"
+            @click="modifyMovie"
             type="button"
             value="Submit"
-            class="m-5 btn btn-blue disabled:opacity-20"
-            :disabled="isError"
+            class="mt-5 btn btn-blue disabled:opacity-20"
           />
         </div>
       </div>
       <!--  -->
       <!-- Notification -->
-      <div
-        :notifyType="Submit"
-        v-if="isNotificationOpen"
-        class="absolute bottom-0 flex flex-col items-center justify-center w-full h-full gap-10 rounded-2xl bg-lightblue-100"
-      >
-        <h1 class="text-4xl font-bold text-gray-800">
-          Your Submit was successful!!
-        </h1>
-        <router-link :to="{ name: 'Home' }">
-          <button type="button" class="text-xl btn btn-blue">Go to Home</button>
-        </router-link>
-      </div>
-      <!-- modal component -->
-
-      <ConfirmationModal
-        v-if="isModalOpen"
-        confirmType="Submit"
-        v-on:confirm="callFormAction"
-        v-on:cancel="closeModal($event)"
-        class="absolute left-auto z-10 w-3/4 p-2 bg-white rounded-lg shadow-2xl bottom-10 h-1/4"
-      />
     </form>
+    <Notification
+      v-if="isNotificationOpen"
+      :notifyType="notifyType"
+      class="absolute inset-0 z-10 top-64 h-2/5"
+      v-on:cancel="handleNotification($event)"
+      type="button"
+    />
   </div>
 </template>
 <script>
@@ -147,20 +132,20 @@
   import ValidateInput from '../mixins/ValidateInput'; // only form validator
   import InputFormMethods from '../mixins/InputFormMethods'; // rest of  the methods
   // ..
-  import ConfirmationModal from './ConfirmationModal'; // Modal Component
+  import Notification from './Notification'; // Modal Component
 
   export default {
     mixins: [ValidateInput, InputFormMethods],
 
     props: { movieData: Object },
-    components: { ConfirmationModal },
+    components: { Notification },
 
     data() {
       return {
         isNotificationOpen: false,
-        isModalOpen: false,
         isError: true,
         errorObject: {},
+        notifyType: '',
         years: [],
         genres: {
           Comedy: '0',

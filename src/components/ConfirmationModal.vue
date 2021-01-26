@@ -26,7 +26,7 @@
 <script>
   export default {
     name: 'ConfirmationModal',
-    props: ['confirmType'],
+    props: { confirmType: String },
     methods: {
       confirm() {
         this.$emit('confirm', true);

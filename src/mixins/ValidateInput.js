@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-/* eslint-disable no-unused-vars */
 export default {
   methods: {
     validate(data) {

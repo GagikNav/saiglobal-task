@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-/* eslint-disable no-unused-vars */
 export default {
   methods: {
     feelLucky() {
@@ -31,9 +29,14 @@ export default {
           this.$store.dispatch('addData', this.formData); // if save mode
         }
         this.clearForm();
-        this.closeModal();
+        this.notifyType = 'Submit';
         this.handleNotification(true);
+        setTimeout(() => {
+          this.$router.push('/');
+        }, 2000);
       } else {
+        this.notifyType = 'warning';
+        this.handleNotification(true);
         console.log('Please correct the errors');
         return;
       }

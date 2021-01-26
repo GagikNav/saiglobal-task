@@ -6,7 +6,7 @@
           <img
             class="object-cover object-center w-full h-full mx-auto mt-1 rounded shadow-2xl "
             :src="movie.picUrl"
-            alt=""
+            :alt="movie.name"
             style="height:40vh"
           />
         </div>
@@ -38,7 +38,7 @@
           </div>
 
           <span
-            class="block mt-5 overflow-hidden antialiased font-semibold tracking-wider text-gray-600 md:text-lg md:mt-8"
+            class="block mt-5 overflow-hidden antialiased font-semibold tracking-wider text-secondary md:text-base md:mt-8"
           >
             {{ movie.description }}
           </span>
@@ -122,6 +122,9 @@
         this.$store.dispatch('deleteData', this.movie.id);
         this.closeModal();
         this.handleNotification(true);
+        setTimeout(() => {
+          this.$router.push('/');
+        }, 2000);
       },
     },
 

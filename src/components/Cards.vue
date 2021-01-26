@@ -1,13 +1,10 @@
 <template>
-  <div class="flex flex-wrap justify-center gap-5 max-w-7xl">
+  <div class="flex flex-wrap justify-center gap-5 my-5 max-w-7xl">
+    <!-- also this btn is experimental -->
     <!-- <button type="button" class="btn " @click="changeWord">
       show action
     </button> -->
-    <CardDetail
-      v-for="movie in filterRomance"
-      :key="movie.id"
-      :movieId="movie.id"
-    />
+    <CardDetail v-for="movie in movies" :key="movie.id" :movieId="movie.id" />
   </div>
 </template>
 
@@ -24,6 +21,7 @@
         unFilteredMovies: '',
         filterWord: 'Romance',
         isShowAll: true,
+        filteredMovies: [],
       };
     },
 
@@ -31,46 +29,36 @@
       CardDetail,
     },
     methods: {
+      //  this section is experimental
+      //!
+      //!
+      //!
+      /*
       changeWord() {
         this.filterWord = 'Action';
+        this.testFilter();
         console.log(this.filterWord);
       },
       testFilter() {
         const movies = this.$store.state.movies;
-        let f2 = [];
+        let filterIndexArr = [];
         movies
           .map(item => Object.values(item))
           .map((item, index) => {
             if (Object.values(item[2]).includes(this.filterWord)) {
-              f2.push(index);
+              filterIndexArr.push(index);
             }
           });
-        console.log(f2);
-      },
 
-      //
+        console.log(filterIndexArr);
+        filterIndexArr.map(index => {
+          this.filteredMovies.push(this.movies[index]);
+        });
+        console.log(this.filteredMovies);
+      },
+*/
     },
     computed: {
-      // this is for test
-      filterRomance() {
-        if (!this.isShowAll) {
-          let res = [];
-          let movieCat = [];
-          const movies = this.$store.state.movies;
-          const genre = this.$store.state.movies.map(movie => movie.genre);
-          const genreArr = genre.map(item => Object.values(item));
-          const indexOfRomance = genreArr.map(i => i.includes(this.filterWord));
-          indexOfRomance.map((item, index) => {
-            if (item) {
-              res.push(index);
-            }
-          });
-          res.map(index => movieCat.push(movies[index]));
-          return movieCat;
-        } else {
-          return this.$store.state.movies;
-        }
-      },
       ...mapState({
         movies: state => state.movies,
       }),

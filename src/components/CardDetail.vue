@@ -1,22 +1,14 @@
 <template lang="">
   <div
-    class="w-full mx-2 my-6 overflow-hidden bg-white border border-gray-300 rounded-md shadow-md md:w-1/3 lg:w-1/4 sm:p-0"
+    class="w-full overflow-hidden bg-white border border-gray-300 rounded-md shadow-md md:w-1/3 lg:w-1/4 sm:p-0"
   >
     <router-link :to="{ name: 'Movie', params: { id: movie.id } }">
       <div class="relative flex justify-center h-1/2">
         <img
           :src="movie.picUrl"
-          alt=""
+          :alt="movie.name"
           class="object-cover object-center w-full max-h-64 "
         />
-        <div
-          id="inspiration"
-          class="absolute w-20 h-5 p-0 text-xs text-center text-white capitalize bg-gray-500 rounded-md shadow-md top-4 left-5"
-        >
-          <span class="">
-            Inspiration
-          </span>
-        </div>
       </div>
       <!-- text content -->
       <div class="flex flex-col items-start px-3 pb-8 ">
@@ -60,11 +52,7 @@
         movie: {},
       };
     },
-    methods: {
-      log(arg) {
-        console.log(arg);
-      },
-    },
+
     created() {
       this.movie = this.getMovie(this.movieId);
     },

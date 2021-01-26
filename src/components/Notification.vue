@@ -1,14 +1,30 @@
-<template lang="">
+<template>
   <div>
     <div
-      class="absolute bottom-0 flex flex-col items-center justify-center w-full h-full gap-10 rounded-2xl bg-lightblue-100"
+      class="flex flex-col items-center justify-center w-full h-full rounded-2xl bg-lightblue-100"
     >
-      <h1 class="text-4xl font-bold text-gray-800">
+      <h1
+        v-if="notifyType !== 'warning'"
+        class="text-xl font-bold text-center text-gray-800 md:text-4xl"
+      >
         Your {{ notifyType }} was successful!!
       </h1>
-      <router-link :to="{ name: 'Home' }">
-        <button type="button" class="text-xl btn btn-blue">Go to Home</button>
-      </router-link>
+
+      <div
+        class="flex flex-col items-center justify-center"
+        v-if="notifyType === 'warning'"
+      >
+        <h1 class="block text-2xl font-bold text-red-700">
+          Please correct the errors!
+        </h1>
+        <button
+          @click="cancel"
+          type="button"
+          class="mx-auto mt-10 shadow btn btn-blue"
+        >
+          Ok
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +33,11 @@
     props: {
       notifyType: String,
     },
+    methods: {
+      cancel() {
+        this.$emit('cancel', false);
+      },
+    },
     data() {
       return {
         //
@@ -24,4 +45,3 @@
     },
   };
 </script>
-<style lang=""></style>

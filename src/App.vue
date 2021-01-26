@@ -2,10 +2,14 @@
   <div id="app" class="box-border antialiased bg-gray-100 text-secondary ">
     <div
       id="nav"
-      class="relative z-50 flex items-center justify-between h-20 px-8 opacity-95 content-evenly"
+      class="relative z-50 flex items-center justify-between px-8 shadow h-26 opacity-95 content-evenly"
     >
       <router-link :to="{ name: 'Home' }">
-        <img src="../src/assets/logo-removebg.png" alt="" class="w-20 h-20 " />
+        <img
+          src="../src/assets/logo-removebg.png"
+          alt="logo"
+          class="h-28 w-38 "
+        />
       </router-link>
       <div class="hidden gap-4 md:hover:text-primary md:order-last md:flex">
         <router-link :to="{ name: 'Home' }">Home</router-link>
@@ -28,16 +32,19 @@
         <router-link
           class="flex justify-end w-full px-4 py-2 rounded hover:bg-gray-200"
           :to="{ name: 'Home' }"
+          @click="showMenu = false"
           >Home</router-link
         >
         <router-link
           class="flex justify-end w-full px-4 py-2 rounded hover:bg-gray-200"
           :to="{ name: 'About' }"
+          @click="showMenu = false"
           >About</router-link
         >
         <router-link
           class="flex justify-end w-full px-4 py-2 rounded hover:bg-gray-200"
           :to="{ name: 'AddMovie' }"
+          @click="showMenu = false"
           >Add Movie</router-link
         >
       </div>
@@ -149,9 +156,5 @@
         color: #00a4d3;
       }
     }
-  }
-
-  #main-footer {
-    // height: 40px;
   }
 </style>

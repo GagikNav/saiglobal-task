@@ -4,7 +4,7 @@ import About from '../views/About.vue';
 import Movie from '../views/Movie.vue';
 import AddMovie from '../views/AddMovie.vue';
 import EditMovie from '../views/EditMovie.vue';
-
+import PageNotFound from '../views/PageNotFound.vue';
 const routes = [
   {
     path: '/',
@@ -33,9 +33,14 @@ const routes = [
     props: true,
     component: EditMovie,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    component: PageNotFound,
+  },
 ];
 
 const router = createRouter({
+  mode: 'history',
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });

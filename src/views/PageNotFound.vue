@@ -3,10 +3,3 @@
     <h1 class="text-2xl">Page Not Found</h1>
   </div>
 </template>
-
-<script>
-  // ..
-</script>
-<style lang="css">
-  /*  */
-</style>

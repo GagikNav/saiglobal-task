@@ -3,7 +3,7 @@
     <div id="text" class="flex flex-col ">
       <!-- dynamically changes color if delete -->
       <h1
-        class="text-lg font-semibold md:text-xl"
+        class="pt-1 text-lg font-semibold text-center md:text-xl"
         :class="{ 'text-red-600': confirmType === 'Delete' }"
       >
         Are you sure you want to {{ confirmType }} ?
@@ -37,4 +37,3 @@
     },
   };
 </script>
-<style lang=""></style>

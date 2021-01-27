@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto pt-10 bg-gray-100 ">
+  <div class="relative w-full h-auto pt-10 bg-gray-100 ">
     <div class="flex w-full ">
       <div class="mx-auto sm:max-w-2xl lg:max-w-full lg:w-1/2 lg:h-4/5">
         <div class="lg:hidden">
@@ -13,7 +13,7 @@
 
         <div
           id="content-area "
-          class="relative px-2 mt-5 lg:max-w-4xl lg:ml-auto lg:px-20 lg:mt-0"
+          class="px-2 mt-5 lg:max-w-4xl lg:ml-auto lg:px-20 lg:mt-0"
         >
           <div id="genre" class="mb-5 md:mt-8">
             <span
@@ -42,21 +42,24 @@
           >
             {{ movie.description }}
           </span>
+          <!-- button section -->
           <div
             id="button-section"
             class="flex m-10 outline-none justify-evenly"
           >
             <router-link :to="{ name: 'EditMovie', params: { id: movie.id } }">
               <button
-                class="tracking-wider uppercase shadow-lg btn btn-blue active:bg-lightblue-400 focus:outline-none focus:ring focus:border-lightblue-400"
+                class="tracking-wider uppercase shadow-lg btn btn-blue active:bg-lightblue-400 focus:outline-none focus:ring focus:border-lightblue-400 disabled:opacity-20"
+                :disabled="isModalOpen"
               >
                 EDIT
               </button>
             </router-link>
             <button
-              class="tracking-wider uppercase shadow-lg btn btn-red active:bg-red-400 focus:outline-none focus:ring focus:border-red-600"
+              class="tracking-wider uppercase shadow-lg btn btn-red active:bg-red-400 focus:outline-none focus:ring focus:border-red-600 disabled:opacity-20"
               @click="openModal"
               type="button"
+              :disabled="isModalOpen"
             >
               DELETE
             </button>
@@ -84,7 +87,7 @@
       confirmType="Delete"
       v-on:confirm="callFormAction"
       v-on:cancel="closeModal($event)"
-      class="absolute bottom-0 z-10 w-full bg-white border border-gray-500 rounded-lg shadow-2xl md:w-1/2 h-1/4"
+      class="absolute z-10 w-full bg-gray-300 border border-gray-500 rounded-lg shadow-2xl bottom-1/4 md:w-1/2 h-1/5"
     />
   </div>
 </template>

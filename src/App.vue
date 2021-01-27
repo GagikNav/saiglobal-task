@@ -110,27 +110,13 @@
             Contacts
           </h3>
           <ul class="flex flex-col items-start justify-start py-2">
-            <li class="py-2 cursor-pointer hover:text-primary ">
-              <i class="px-2 fas fa-envelope"></i>
-              <a href="#">gagik.n@gmail.com</a>
-            </li>
-            <li class="py-2 cursor-pointer hover:text-primary">
-              <i class="px-2 fas fa-globe"></i>
-              <a href="https://www.gagik.me" target="”_blank”">/Gagik.me</a>
-            </li>
-            <li class="py-2 cursor-pointer hover:text-primary">
-              <i class="px-2 fab fa-github"></i>
-              <a
-                href="https://github.com/GagikNav/saiglobal-task"
-                target="”_blank”"
-                >/GagikNav</a
-              >
-            </li>
-            <li class="py-2 cursor-pointer hover:text-primary">
-              <i class="px-2 fab fa-linkedin"></i>
-              <a href="https://www.linkedin.com/in/gagik-n/" target="”_blank”"
-                >/gagik-n/</a
-              >
+            <li
+              v-for="(contact, index) in contacts"
+              :key="index"
+              class="py-2 cursor-pointer hover:text-primary "
+            >
+              <i :class="contact.icon"></i>
+              <a :href="contact.link" target="_blank">{{ contact.title }}</a>
             </li>
           </ul>
         </div>
@@ -158,6 +144,28 @@
         showMenu: false,
         popGenres: ['Drama', 'Comedy', 'Action', 'Romance'],
         shortCuts: ['About', 'Home', 'AddMovie'],
+        contacts: {
+          email: {
+            title: 'gagik.ne@gmail.com',
+            link: '#',
+            icon: 'px-2 fas fa-envelope',
+          },
+          website: {
+            title: '/Gagik.me',
+            link: 'https://www.gagik.me',
+            icon: 'px-2 fas fa-globe',
+          },
+          github: {
+            title: '/GagikNav',
+            link: 'https://github.com/GagikNav/saiglobal-task',
+            icon: 'px-2 fab fa-github',
+          },
+          linkedin: {
+            title: '/Gagik-n',
+            link: 'https://www.linkedin.com/in/gagik-n/',
+            icon: 'px-2 fab fa-linkedin',
+          },
+        },
       };
     },
 

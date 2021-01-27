@@ -17,6 +17,11 @@ For demo click [Demo](https://saiglobal-movie-time.netlify.app)
 
 - MIT
 
+## Contacts
+
+- Reach out to me at: gagik.n@gmail.com
+- My portfolio: [Gagik.me](https://www.gagik.me)
+
 ## Project setup
 
 ```

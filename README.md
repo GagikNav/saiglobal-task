@@ -71,3 +71,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Modals: The website displays a reusable modal every time the user prompts to delete an item. It also displays a proper message after the action has completed successfully.
 - Application is deployed in [Netlify](https://saiglobal-movie-time.netlify.app)
 - Edit and Add are using the same component In order to increase efficiency and reusability
+
+## I used API
+
+- [Lorem Picsum](https://picsum.photos/)

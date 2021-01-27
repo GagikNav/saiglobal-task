@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full h-auto pt-10 bg-gray-100">
+  <div class="w-full h-auto pt-10 bg-gray-100 ">
     <div class="flex w-full ">
       <div class="mx-auto sm:max-w-2xl lg:max-w-full lg:w-1/2 lg:h-4/5">
         <div class="lg:hidden">
@@ -13,7 +13,7 @@
 
         <div
           id="content-area "
-          class="px-2 mt-5 lg:max-w-4xl lg:ml-auto lg:px-20 lg:mt-0"
+          class="relative px-2 mt-5 lg:max-w-4xl lg:ml-auto lg:px-20 lg:mt-0"
         >
           <div id="genre" class="mb-5 md:mt-8">
             <span
@@ -84,7 +84,7 @@
       confirmType="Delete"
       v-on:confirm="callFormAction"
       v-on:cancel="closeModal($event)"
-      class="absolute z-10 w-2/5 p-2 bg-white rounded-lg shadow-2xl left-5 bottom-10 h-2/4"
+      class="absolute bottom-0 z-10 w-full bg-white border border-gray-500 rounded-lg shadow-2xl md:w-1/2 h-1/4"
     />
   </div>
 </template>

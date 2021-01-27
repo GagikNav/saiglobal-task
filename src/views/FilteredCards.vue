@@ -1,6 +1,6 @@
 <template>
   <div id="main" class="flex flex-col items-center justify-center w-full ">
-    <Cards />
+    <Cards :genre="genre" />
   </div>
 </template>
 
@@ -8,8 +8,10 @@
   import Cards from '@/components/Cards.vue';
 
   export default {
-    name: 'Home',
-
+    name: 'FilteredCards',
+    props: {
+      genre: String,
+    },
     components: {
       Cards,
     },

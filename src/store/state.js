@@ -2,63 +2,93 @@ export default {
   movies: [
     {
       id: 1,
-      name: ' Alien',
-      genre: ['Action', 'Romance', 'Drama'],
+      name: ' The Queens Gambit ',
+      genre: ['Drama', 'Sport'],
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam quasi quas quo nulla repellat nihil iusto sequi architecto assumenda fugit.',
+        'Orphaned at the tender age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA. But child stardom comes at a price.',
       year: 2020,
       picUrl:
-        'https://images.unsplash.com/photo-1600213607670-7cb3ccec3b04?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        'https://www.joblo.com/assets/images/joblo/news/2020/10/tvreview-queensgambit-joy.jpg',
     },
     {
       id: 2,
-      name: ' Jedi ',
-      genre: ['Action', 'Drama'],
+      name: 'Peaky Blinders',
+      genre: ['Crime', 'Drama', 'Fantasy'],
       description:
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima at pariatur fugit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corporis. Soluta nobis sequi aut aliquid reprehenderit tempora eaque perspiciatis unde!',
-      year: 2017,
+        'A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.',
+      year: 2013,
       picUrl:
-        'https://images.unsplash.com/photo-1579803815615-1203fb5a2e9d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        'https://thumbs-prod.si-cdn.com/NtBcZJ-E5dwxqmZQKfXOkkkt3ck=/fit-in/1600x0/filters:focal(634x85:635x86)/https://public-media.si-cdn.com/filer/7b/ba/7bba298e-7e2e-44f0-adb9-b47dfdc1e240/p05m69vt.jpg',
     },
     {
       id: 3,
-      name: ' Flames ',
-      genre: ['Action', 'Drama'],
+      name: ' Green Book ',
+      genre: ['Biography', 'Drama', 'Comedy'],
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet sit deleniti soluta ab animi magnam, ipsum at modi minus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo inventore ullam libero repellat iusto ut.',
-      year: 2012,
+        'A working-class Italian-American bouncer becomes the driver of an African-American classical pianist on a tour of venues through the 1960s American South.',
+      year: 2018,
       picUrl:
-        'https://images.unsplash.com/photo-1483917841983-f83104f9ffa5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        'https://www.joblo.com/newsimages1/rsz-greenbook-0hero-h-2018.jpg',
     },
     {
       id: 4,
-      name: 'Princess Sleeping',
-      genre: ['Romance', 'Drama', 'Fantasy'],
+      name: 'Joker',
+      genre: ['Crime', 'Drama', 'Thriller'],
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsa consectetur maiores ab inventore reiciendis necessitatibus architecto vero ullam. At.',
-      year: 2011,
+        'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.',
+      year: 2019,
       picUrl:
-        'https://images.unsplash.com/photo-1610865662679-8dfb712bd14b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        'https://www.joblo.com/assets/images/joblo/news/2019/08/joker-phoenix-stairs.jpeg',
     },
     {
       id: 5,
-      name: 'Kill Bill',
-      genre: ['Crime', 'Drama', 'Fantasy'],
+      name: 'Modern Family',
+      genre: ['Comedy', 'Drama', 'Romance'],
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima libero dicta accusantium aperiam odio delectus fuga veniam laborum corrupti perferendis.',
-      year: 2011,
+        'Three different but related families face trials and tribulations in their own uniquely comedic ways.',
+      year: 2009,
       picUrl:
-        'https://images.unsplash.com/photo-1569995617877-d845becc0d40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80',
+        'https://images-na.ssl-images-amazon.com/images/G/01/digital/video/hero/TVSeries/ModernFamilyS5_6647600-MODERNFAMILY._V364134662_SX1080_.jpg',
     },
     {
       id: 6,
-      name: 'Kill Bill',
-      genre: ['Crime', 'Drama', 'Fantasy'],
+      name: 'This Is Us',
+      genre: ['Comedy', 'Romance'],
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, enim. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima libero dicta accusantium aperiam odio delectus fuga veniam laborum corrupti perferendis.',
-      year: 2011,
+        'A heartwarming and emotional story about a unique set of triplets, their struggles and their wonderful parents.',
+      year: 2016,
       picUrl:
-        'https://www.joblo.com/assets/images/joblo/posters/2020/03/76AA8E0F-AF7A-4FC2-A7DF-C194DBC85900.jpeg',
+        'https://stylecaster.com/wp-content/uploads/2019/08/this-is-us-season-4-poster.jpg',
+    },
+    {
+      id: 7,
+      name: 'Money Heist',
+      genre: ['Crime', 'Action', 'Mystery'],
+      description:
+        'An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.',
+      year: 2017,
+      picUrl:
+        'https://deadline.com/wp-content/uploads/2020/10/money-heist-part-4-preview-netflix.jpg',
+    },
+    {
+      id: 8,
+      name: 'Prison Break',
+      genre: ['Crime', 'Action', 'Drama'],
+      description:
+        'Due to a political conspiracy, an innocent man is sent to death row and his only hope is his brother, who makes it his mission to deliberately get himself sent to the same prison in order to break the both of them out, from the inside.',
+      year: 2005,
+      picUrl:
+        'https://www.joblo.com/assets/images/joblo/news/2020/11/Prison-Break-Wentworth-Miller-done-913.jpg',
+    },
+    {
+      id: 9,
+      name: ' Soul ',
+      genre: ['Animation', 'Adventure', 'Comedy'],
+      description:
+        'After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.',
+      year: 2020,
+      picUrl:
+        'https://cdn.flickeringmyth.com/wp-content/uploads/2020/03/soul-disney-pixar.jpg',
     },
   ],
 };

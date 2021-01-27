@@ -2,7 +2,10 @@
   <div
     class="w-full overflow-hidden bg-white border border-gray-300 rounded-md shadow-md md:w-1/3 lg:w-1/4 sm:p-0"
   >
-    <router-link :to="{ name: 'Movie', params: { id: movie.id } }">
+    <router-link
+      @click="$scrollToTop"
+      :to="{ name: 'Movie', params: { id: movie.id } }"
+    >
       <div class="relative flex justify-center h-1/2">
         <img
           :src="movie.picUrl"
@@ -32,8 +35,8 @@
         </div>
         <!-- this logic is for display no more than 50 charters in field -->
         <span class="text-sm text-gray-600 ">{{
-          movie.description.length > 80
-            ? movie.description.substring(0, 80) + ` &hellip; `
+          movie.description.length > 100
+            ? movie.description.substring(0, 99) + ` &hellip; `
             : movie.description
         }}</span>
       </div>
@@ -52,6 +55,11 @@
         movie: {},
       };
     },
+    methods: {
+      scrollToTop() {
+        window.scrollTo(0, 0);
+      },
+    },
 
     created() {
       this.movie = this.getMovie(this.movieId);
@@ -66,4 +74,3 @@
     },
   };
 </script>
-<style lang=""></style>

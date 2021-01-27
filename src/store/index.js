@@ -43,7 +43,25 @@ export default createStore({
     getMovieById: state => id => {
       return state.movies.find(movie => movie.id === id * 1);
     },
-    getLastMovie: state => state.movies[0],
+
+    getFilteredMovies: state => filterWord => {
+      // this code filters movies by  given genre
+      let filterIndexArr = [];
+      let filteredMovies = [];
+      const movies = state.movies;
+      movies
+        .map(item => Object.values(item))
+        .map((item, index) => {
+          if (Object.values(item[2]).includes(filterWord)) {
+            filterIndexArr.push(index);
+          }
+        });
+      filterIndexArr.map(index => {
+        filteredMovies.push(movies[index]);
+      });
+
+      return filteredMovies;
+    },
   },
 
   modules: {},

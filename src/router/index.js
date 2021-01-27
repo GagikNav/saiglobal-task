@@ -5,11 +5,18 @@ import Movie from '../views/Movie.vue';
 import AddMovie from '../views/AddMovie.vue';
 import EditMovie from '../views/EditMovie.vue';
 import PageNotFound from '../views/PageNotFound.vue';
+import FilteredCards from '../views/FilteredCards.vue';
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/filter/:genre',
+    name: 'FilteredCards',
+    props: true,
+    component: FilteredCards,
   },
   {
     path: '/about',

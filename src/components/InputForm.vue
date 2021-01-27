@@ -1,12 +1,12 @@
 <template>
-  <div class="relative w-full mb-5 rounded md:max-w-xl bg-trueGray-300">
-    <form class="flex justify-center p-8 " @submit.prevent="modifyMovie">
-      <div class="flex flex-col w-5/6">
+  <div class="relative w-full mb-5 rounded shadow md:max-w-xl bg-trueGray-100">
+    <form class="flex justify-center p-2 " @submit.prevent="modifyMovie">
+      <div class="flex flex-col w-full sm:w-4/5">
         <!-- Name -->
         <label for="mname"
           >Movie name:
           <span
-            class="float-right p-0 text-xs italic font-thin tracking-tighter text-red-600 "
+            class="float-right p-0 text-xs italic text-red-600 "
             v-if="errorObject.name"
             >{{ errorObject.name }}</span
           ></label
@@ -23,7 +23,7 @@
         <label class="mt-4" for="fname"
           >Movie genre:
           <span
-            class="float-right p-0 text-xs italic font-thin tracking-tighter text-red-600 "
+            class="float-right p-0 text-xs italic text-red-600 "
             v-if="errorObject.genre"
             >{{ errorObject.genre }}</span
           ></label
@@ -48,7 +48,7 @@
         <label class="mt-4" for="description"
           >Description:
           <span
-            class="float-right p-0 text-xs italic font-thin tracking-tighter text-red-600 "
+            class="float-right p-0 text-xs italic text-red-600 "
             v-if="errorObject.description"
             >{{ errorObject.description }}</span
           ></label
@@ -63,7 +63,7 @@
         <label class="mt-4" for="year"
           >Year:
           <span
-            class="float-right p-0 text-xs italic font-thin tracking-tighter text-red-600 "
+            class="float-right p-0 text-xs italic text-red-600 "
             v-if="errorObject.year"
             >{{ errorObject.year }}</span
           ></label
@@ -84,7 +84,7 @@
         <label class="mt-4" for="year"
           >Image URL:
           <span
-            class="float-right p-0 text-xs italic font-thin tracking-tighter text-red-600 "
+            class="float-right p-0 text-xs italic text-red-600 "
             v-if="errorObject.picUrl"
             >{{ errorObject.picUrl }}</span
           ></label
@@ -101,8 +101,11 @@
             type="button"
             @click="feelLucky"
           >
-            I feel lucky!!
+            I feel lucky!
           </button>
+          <span class="ml-2 text-xs italic tracking-tight"
+            >Use this feature if you don't have an image URL in hand!</span
+          >
         </div>
 
         <div>
@@ -190,6 +193,7 @@
         }
       },
     },
+    computed: {},
 
     created() {
       //  end date can be dynamic
@@ -204,11 +208,5 @@
         this.formData = this.movieData; //movieData came from EditMovie component
       }
     },
-
-    // ..
-    //
   };
 </script>
-<style lang="scss">
-  /* .. */
-</style>

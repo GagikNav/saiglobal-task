@@ -1,9 +1,9 @@
 <template lang="">
   <div class="flex flex-col items-center justify-around bg-gray-200">
-    <div id="text" class="">
+    <div id="text" class="flex flex-col ">
       <!-- dynamically changes color if delete -->
       <h1
-        class="text-2xl font-semibold "
+        class="text-lg font-semibold md:text-xl"
         :class="{ 'text-red-600': confirmType === 'Delete' }"
       >
         Are you sure you want to {{ confirmType }} ?

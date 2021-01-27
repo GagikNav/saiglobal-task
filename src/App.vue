@@ -50,6 +50,10 @@
       </div>
     </div>
     <router-view />
+    <!-- 
+      ** 
+      **Footer section
+     -->
     <footer
       id="main-footer"
       class="relative flex flex-col h-auto px-5 py-3 text-xs font-light text-center bg-footer text-footerText"
@@ -59,8 +63,12 @@
       >
         <!--  -->
         <div id="g-1" class="flex flex-col items-center justify-center ">
-          <div class="flex flex-col items-end gap-2 ">
-            <img src="../src/assets/logo-removebg.png" alt="logo" class="" />
+          <div class="flex flex-col items-end">
+            <img
+              src="../src/assets/logo-removebg.png"
+              alt="logo"
+              class="w-44 "
+            />
           </div>
         </div>
         <div id="g-2" class="flex flex-col items-start mt-5 sm:p-10">
@@ -68,10 +76,17 @@
             Popular Genres
           </h3>
           <ul class="flex flex-col items-start justify-start py-2">
-            <li class="py-2 uppercase cursor-pointer ">Comedy</li>
-            <li class="py-2 uppercase cursor-pointer">Romance</li>
-            <li class="py-2 uppercase cursor-pointer">Drama</li>
-            <li class="py-2 uppercase cursor-pointer ">Fantasy</li>
+            <li
+              v-for="(popGenre, index) in popGenres"
+              :key="index"
+              class="py-2 capitalize cursor-pointer hover:text-primary"
+            >
+              <router-link
+                :to="{ name: 'FilteredCards', params: { genre: popGenre } }"
+              >
+                {{ popGenre }}
+              </router-link>
+            </li>
           </ul>
         </div>
         <div id="g-3" class="flex flex-col items-start mt-5 sm:p-10 sm:flex ">
@@ -79,10 +94,15 @@
             Shortcuts
           </h3>
           <ul class="flex flex-col items-start justify-start py-2">
-            <li class="py-2 uppercase cursor-pointer ">Serries</li>
-            <li class="py-2 uppercase cursor-pointer">Movies</li>
-            <li class="py-2 uppercase cursor-pointer">About</li>
-            <li class="py-2 uppercase cursor-pointer ">See All movies</li>
+            <li
+              v-for="(shortCut, index) in shortCuts"
+              :key="index"
+              class="py-2 capitalize cursor-pointer "
+            >
+              <router-link :to="{ name: shortCut }">
+                {{ shortCut }}
+              </router-link>
+            </li>
           </ul>
         </div>
         <div id="g-4" class="flex flex-col items-start mt-5 sm:p-10">
@@ -136,8 +156,11 @@
     data() {
       return {
         showMenu: false,
+        popGenres: ['Drama', 'Comedy', 'Action', 'Romance'],
+        shortCuts: ['About', 'Home', 'AddMovie'],
       };
     },
+
     computed: {
       date: () => {
         const d = new Date();

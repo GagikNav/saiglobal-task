@@ -72,6 +72,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Application is deployed in [Netlify](https://saiglobal-movie-time.netlify.app)
 - Edit and Add are using the same component In order to increase efficiency and reusability
 
-## I used API
+## API
 
 - [Lorem Picsum](https://picsum.photos/)

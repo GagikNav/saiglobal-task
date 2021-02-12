@@ -3,7 +3,7 @@
     class="w-full overflow-hidden bg-white border border-gray-300 rounded-md shadow-md md:w-1/3 lg:w-1/4 sm:p-0"
   >
     <router-link :to="{ name: 'Movie', params: { id: movie.id } }">
-      <div class="relative flex justify-center h-1/2">
+      <div class="relative flex justify-center h-1/2 ">
         <img
           :src="movie.picUrl"
           :alt="movie.name"
